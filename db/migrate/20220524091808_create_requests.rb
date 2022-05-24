@@ -6,7 +6,7 @@ class CreateRequests < ActiveRecord::Migration[6.1]
       t.string :address
       t.integer :price
       t.boolean :status
-      t.references :users, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

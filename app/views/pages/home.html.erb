@@ -1,1 +1,32 @@
-<h1>Welcome to Helpiful</h1>
+<div class="navbar homepage">
+  <div>
+    <h1 class="navbar header">Helpiful</h1>
+  </div>
+  <div class="container-btn">
+    <%= link_to 'Sign in', new_user_session_path, class: 'btn-sign'%>
+    <%= link_to 'Sign up', new_user_registration_path, class: 'btn-sign'%>
+  </div>
+</div>
+
+<div class="banner">
+  <div class="search-bar">
+    <%= simple_form_for :search, url: requests_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+      <%= f.input :category, input_html: {value: ""}, priority: [ "Category" ], collection: [ Request::CATEGORIES ]%><%= f.input :city, input_html: {value: ""}, priority: [ "city" ], collection: [ Request::CITIES ]%><%= f.submit "Search", class: "btn-sign" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="cards-category-container" data-controller="category" >
+    <% Request::CATEGORIES.each do |category| %>
+      <div class="card-trip"  data-action="click->category#index">
+        <%= image_tag("pexels-anna-tarazevich-5697250.jpg") %>
+        <div class="card-trip-infos">
+          <div>
+            <h2 data-category-target="category"><%= category %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
