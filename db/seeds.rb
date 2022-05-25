@@ -4,27 +4,31 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-spiros = User.new({
-  email: 'spiros12@gmail.com',
-  password: '123456'
-})
-spiros.save
-puts "spiros created"
 
-task = Request.new({
-  title: "Move my table",
-  description: "Looking for someone to pick my table for 50 euros",
-  address: "Balanstrasse 25",
-  price: "50",
-  status: false}
+spiros = User.new({ email: 'spiros12@gmail.com', password: '123456' })
+spiros.save
+puts "Spiros created"
+puts "Cleaning up the DB"
+
+task = Request.new(
+  {
+    title: "Move my table",
+    description: "Looking for someone to pick my table for 50 euros",
+    city: "Berlin",
+    category: "Furniture",
+    price: "50",
+    status: false
+  }
 )
-puts "task opened"
+
+puts "Request opened"
 
 task.user = spiros
-task.save
+task.save!
 
-puts "task created"
+puts "Request created"
 
-Request.create(title: 'Need to get rid of old desk', description: 'I have a 10 year old desk table that I would like to get rid of. If you are interested, you can contact me here for more details.', address: 'Balanstreet 123, 75689 Munich', price: '50€', status: true, category: 'Furniture')
-Request.create(title: 'Need to get rid of old closet', description: 'I have an old closet that I would like to get rid of. If you are interested, you can contact me here for more details.', address: 'Fikastreet 777, 75689 Stockholm', price: '60€', status: true, category: 'Furniture')
+Request.create(user: spiros, title: 'Need to get rid of old desk', description: 'I have a 10 year old desk table that I would like to get rid of. If you are interested, you can contact me here for more details.', city: "Munich", price: '50€', status: true, category: 'Furniture')
+Request.create(user: spiros, title: 'Need to get rid of old closet', description: 'I have an old closet that I would like to get rid of. If you are interested, you can contact me here for more details.', city: 'Stockholm', price: '60€', status: false, category: 'Furniture')
+
+puts "Done"
