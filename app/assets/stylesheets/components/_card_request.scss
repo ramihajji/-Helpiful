@@ -1,16 +1,15 @@
 .container-request-card {
   display: flex;
-  justify-content: center;
-  margin: 50px 100px;
+  justify-content: space-between;
+  flex-wrap: wrap;
   border-radius: 4px;
-  padding-bottom: 250px;
+  padding: 30px 100px;
 }
 
 .request-card {
-  padding: 30px;
+  height: 380px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 400px;
-
+  margin: 0px 30px 30px;
   h1 {
     font-size: 20px;
   }
@@ -20,10 +19,26 @@
     font-size: 14px;
   }
 }
-.container-info {
+
+
+.request-info {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  flex-direction: column;
+  padding: 16px;
+
+  .request-card-info {
+    flex-grow: 4;
+
+    .card-price {
+      text-align: end;
+    }
+  }
+
+  .request-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
 }
 
 .form-offer {
