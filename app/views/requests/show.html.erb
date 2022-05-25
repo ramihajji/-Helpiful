@@ -1,0 +1,14 @@
+<div class="container-request-card">
+<div class="request-card">
+  <div class="container-info">
+    <h1><%= @request.title %></h1>
+    <p><strong><%= @request.price %> €</strong></p>
+  </div>
+  <p class="description"><%= @request.description %></p>
+  <div class="container-info">
+    <%= link_to "Make offer", new_request_offer_path, class: "btn btn-warning" %>
+    <p>📍<strong><%= @request.city %></strong></p>
+  </div>
+  </div>
+
+</div>

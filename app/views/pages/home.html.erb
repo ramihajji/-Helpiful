@@ -2,9 +2,7 @@
 <div class="banner">
   <div class="search-bar">
     <%= simple_form_for :search, url: requests_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-      <%= f.input :category, collection: Request::CATEGORIES %>
-      <%= f.input :city, collection: Request::CITIES %>
-      <%= f.submit "Search", class: "btn-sign" %>
+      <%= f.input :category, collection: Request::CATEGORIES %><%= f.input :city, collection: Request::CITIES %><%= f.submit "Search", class: "btn btn-warning" %>
     <% end %>
   </div>
 </div>
@@ -12,11 +10,11 @@
 <div class="container">
   <div class="cards-category-container" data-controller="category" >
     <% Request::CATEGORIES.each do |category| %>
-      <div class="card-trip"  data-action="click->category#index">
+      <div class="card-trip"  data-action="click->category#index" data-category-id-param="<%= category %>">
         <%= image_tag("pexels-anna-tarazevich-5697250.jpg") %>
         <div class="card-trip-infos">
           <div>
-            <h2 data-category-target="category"><%= category %></h2>
+            <h2 data-category-target="card"><%= category %></h2>
           </div>
         </div>
       </div>
