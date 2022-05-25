@@ -1,14 +1,19 @@
-<div class="form-title">
-  <h1>Your request</h1>
-</div>
 
-<div>
-  <a href="#" target="_blank">Make a request</a><br>
-  <a href="#" target="_blank">My request</a><br>
-  <a href="#" target="_blank">My offers</a><br>
-  <a href="#" target="_blank">My messages</a>
-</div>
 
-  <div>
-    <%= render 'form', request: @request %>
+<div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <%= link_to "Make a request", new_request_path %><br>
+        <%= link_to "My requests", requests_path %><br>
+        <%= link_to "My offers", "#" %><br>
+        <%= link_to "My messages", "#" %>
+      </div>
+
+
+
+      <div class="col-12 col-lg-8">
+        <h1>Your request</h1>
+         <%= render 'form', request: @request %>
+     </div>
   </div>
+</div>
