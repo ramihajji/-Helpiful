@@ -1,0 +1,13 @@
+<div class="confirmation-box col-md-4">
+    <div class="form-group">
+      <h4>$<%= @request.price %></h4>
+
+      <%= simple_form_for [@request, @offer] do |f| %>
+        <%= f.input :message %>
+
+        <%= f.submit "Submit offer", class: "btn btn-danger form-control" %>
+        <br><br>
+      <% end %>
+    </div>
+  </div>
+</div>
