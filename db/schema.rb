@@ -24,7 +24,10 @@ ActiveRecord::Schema.define(version: 2022_05_24_172500) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+<<<<<<< HEAD
+=======
     t.string "category"
+>>>>>>> 5ad20b2f6e96a69bdef1703dc53118ae3d677ca7
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 

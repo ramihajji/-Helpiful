@@ -13,11 +13,12 @@ class ApplicationPolicy
   end
 
   def show?
-    false
+    # this has been manually modified
+    true
   end
 
   def create?
-    false
+    true
   end
 
   def new?
@@ -25,7 +26,8 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    # this has been manually modified
+    true
   end
 
   def edit?
