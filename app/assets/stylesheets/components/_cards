@@ -1,0 +1,23 @@
+.Card {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.Card_body {
+  padding: 24px 16px;
+  background-color: white;
+}
+
+
+.Card_title {
+    margin: 0;
+    font-size: 21px;
+    line-height: 1.5;
+    font-weight: bold;
+}
