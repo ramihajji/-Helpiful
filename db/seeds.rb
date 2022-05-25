@@ -4,16 +4,12 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-puts "Cleaning up the DB"
-User.destroy_all
-Request.destroy_all
 
 spiros = User.new({ email: 'spiros12@gmail.com', password: '123456' })
 
 spiros.save
 puts "Spiros created"
+puts "Cleaning up the DB"
 
 task = Request.new(
   {
