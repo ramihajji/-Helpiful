@@ -3,7 +3,7 @@ class CreateRequests < ActiveRecord::Migration[6.1]
     create_table :requests do |t|
       t.string :title
       t.text :description
-      t.string :address
+      t.string :city
       t.integer :price
       t.boolean :status
       t.references :user, null: false, foreign_key: true
