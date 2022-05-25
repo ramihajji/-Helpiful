@@ -5,6 +5,11 @@ class RequestsController < ApplicationController
   def index
     if params[:search][:category].empty? && params[:search][:city].empty?
       @requests = policy_scope(Request)
+    elsif params[:search][:category] && params[:search][:city].empty?
+      @requests = policy_scope(Request.where(category: params[:search][:category]))
+    elsif params[:search][:category].empty? && params[:search][:city]
+      puts "I'm here"
+      @requests = policy_scope(Request.where(city: params[:search][:city]))
     else
       @requests = policy_scope(Request.where(category: params[:search][:category], city: params[:search][:city]))
     end
