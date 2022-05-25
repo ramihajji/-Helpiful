@@ -12,15 +12,6 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card-trip">
 
-            <%= image_tag "HELPIFUL.png", height: 250, crop: :fill %>
-            <ul>
-              <div class="card active">
-                <li class="pack"><%= link_to "#{request.title}", request_path(request), class: "card-title text-black" %></li>
-                <li class="pack"><%= link_to "#{request.price}€", request_path(request), class: "card-title text-black" %></li>
-                <li class="pack"><%= link_to "#{request.city}", request_path(request), class: "card-title text-black" %></li>
-              </div>
-            </ul>
-
            <%= image_tag "HELPIFUL.png", height: 250, crop: :fill %>
             <div class="card-trip-infos">
               <p class="card-title"> <%= link_to "#{request.title}", request_path(request), class: "card-title text-black" %></p>
