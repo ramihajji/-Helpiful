@@ -7,22 +7,24 @@
   </div>
 
    <div class="container">
-    <div class="row">
+    <div class="container-request-card">
       <% @requests.each do |request| %>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="card-trip">
-            <%= image_tag "HELPIFUL.png", height: 250, crop: :fill %>
-            <div class="card-trip-infos">
+        <div class="col-sm-6 col-md-6 col-lg-4 ">
+          <div class="request-card">
+            <%= image_tag "HELPIFUL.png", height: 200, crop: :fill %>
+            <div class="request-info">
+            <div class="request-card-info">
+              <p class="card-price"><i class="fa-solid fa-euro-sign"></i> <%= request.price %></p>
               <p class="card-title"> <%= link_to "#{request.title}", request_path(request), class: "card-title text-black" %></p>
-              <p class="card-price"> <%= request.price %>€</p>
-              <p class="card-city">  <%= request.city %></p>
             </div>
-
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#s<%= request.id.to_s %>">
-            Read more
-            </button>
-
+            <div class="request-card-footer">
+              <button type="button" class="btn btn-warning read-more" data-bs-toggle="modal" data-bs-target="#s<%= request.id.to_s %>">
+              Read more
+              </button>
+              <p class="card-city"><i class="fa-solid fa-location-dot"></i> <%= request.city %></p>
+            </div>
+            </div>
            </div>
         </div>
 
