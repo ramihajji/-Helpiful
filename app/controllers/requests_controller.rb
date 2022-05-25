@@ -45,13 +45,8 @@ class RequestsController < ApplicationController
     private
 
     def request_params
-<<<<<<< HEAD
-      params.require(:request).permit(:title, :description, :address, :price, :status)
-    end
-=======
       params.require(:request).permit(:title, :description, :address, :price, :status, :photo)
-    end 
->>>>>>> 5ad20b2f6e96a69bdef1703dc53118ae3d677ca7
+    end
 
     def set_request
       @request = Request.find(params[:id])

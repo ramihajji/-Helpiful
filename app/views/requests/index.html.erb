@@ -21,7 +21,7 @@
       </div>
     </div>
   </header>
-  
+
   <div id="banner">
     <h1>Here are all the requests</h1>
     <h3>Take a look at them and choose a task</h3>
@@ -29,7 +29,7 @@
     <span data-controller="typed-js"></span>
   </p>
   </div>
-  
+
   <div class="container">
     <div class="row">
       <% @requests.each do |request| %>
@@ -41,13 +41,12 @@
             <%= image_tag "HELPIFUL.png", height: 250, crop: :fill %>
             <% end %>
             <div class="card-body d-flex justify-content-center">
-              <%= link_to "#{request.name}", request_path(request), class: "card-title text-light" %>
+              <%= link_to "#{request.title}", request_path(request), class: "card-title text-light" %>
             </div>
           </div>
         </div>
       <% end %>
     </div>
-  
+
     <%= link_to "Back to Homepage", root_path, class: "btn btn-light mt-3 mb-3" %>
   </div>
-  
