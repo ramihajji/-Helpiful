@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2022_05_25_092834) do
   create_table "requests", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "address"
+    t.string "city"
     t.integer "price"
     t.boolean "status"
     t.bigint "user_id", null: false
