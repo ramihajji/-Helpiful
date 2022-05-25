@@ -1,0 +1,26 @@
+.container-request-card {
+  display: flex;
+  justify-content: center;
+  margin: 50px 100px;
+  border-radius: 4px;
+}
+
+.request-card {
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 400px;
+
+  h1 {
+    font-size: 20px;
+  }
+  strong { font-weight: bold; }
+
+  .description {
+    font-size: 14px;
+  }
+}
+.container-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
