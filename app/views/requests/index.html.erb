@@ -11,19 +11,48 @@
       <% @requests.each do |request| %>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card-trip">
-
-           <%= image_tag "HELPIFUL.png", height: 250, crop: :fill %>
+            <%= image_tag "HELPIFUL.png", height: 250, crop: :fill %>
             <div class="card-trip-infos">
               <p class="card-title"> <%= link_to "#{request.title}", request_path(request), class: "card-title text-black" %></p>
               <p class="card-price"> <%= request.price %>€</p>
               <p class="card-city">  <%= request.city %></p>
-
             </div>
 
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#s<%= request.id.to_s %>">
+            Read more
+            </button>
+
+           </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="s<%= request.id.to_s %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel"><%= request.title %></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p class="modal-reward"><i class="fa-solid fa-euro-sign"></i> <%= request.price %></p>
+                <p class="modal-description"><%= request.description %></p>
+                <p class="modal-city"><i class="fa-solid fa-location-dot"></i> <%= request.city %></p>
+              </div>
+              <div class="modal-footer">
+                <%= link_to "Make offer", new_request_offer_path(request), class: "btn btn-warning" %>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>
     </div>
+
+
+
+
+
 
     <%= link_to "Back to Homepage", root_path, class: "btn btn-light mt-3 mb-3" %>
   </div>
