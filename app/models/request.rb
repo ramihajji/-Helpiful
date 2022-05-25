@@ -6,5 +6,5 @@ class Request < ApplicationRecord
   CITIES = ["Munich", "Stockholm", "Berlin", "Athena",
             "Bukarest", "Falun", "Sibiu", "Korfu", "Hamburg"]
   validates :category, inclusion: { in: CATEGORIES }
-  validates :category, inclusion: { in: CITIES }
+  validates :city, inclusion: { in: CITIES }
 end
