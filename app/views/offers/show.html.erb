@@ -1,8 +1,4 @@
 <div class="container-listing">
-  <br>
-  <h2><strong>Congratulations, your offer has been made!</strong></h2><br>
-
-
-  <h4><strong><%= @offer.request.title %></strong></h4>
-  <p>Location: <%= @offer.request.city %></p>
-  <p><%= @offer.request.description %></p>
+  <h2><strong>Congratulations, your offer has been made!</strong></h2>
+ <%= link_to "Back to Homepage", root_path, class: "btn btn-light mt-3 mb-3" %>
+</div>

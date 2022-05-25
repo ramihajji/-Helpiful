@@ -3,6 +3,7 @@
   justify-content: center;
   margin: 50px 100px;
   border-radius: 4px;
+  padding-bottom: 250px;
 }
 
 .request-card {
@@ -23,4 +24,18 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+}
+
+.form-offer {
+  width: 100%
+}
+
+.price {
+  text-align: end;
+}
+
+.container-listing {
+  margin: 50px 100px;
+  border-radius: 4px;
+  padding-bottom: 300px;
 }
