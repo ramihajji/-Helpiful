@@ -11,6 +11,7 @@ User.destroy_all
 Request.destroy_all
 
 spiros = User.new({ email: 'spiros12@gmail.com', password: '123456' })
+
 spiros.save
 puts "Spiros created"
 
@@ -79,6 +80,7 @@ Request.create(user: spiros, title: 'Move bed', description: 'I need help with t
 Request.create(user: spiros, title: 'Christmas tree', description: 'I need someone to pickup our Christmas tree after the Holidays. If you are interested, you can contact me here for more details.', city: "Hamburg", price: '20€', status: true, category: 'Wood')
 Request.create(user: spiros, title: 'Trees', description: 'I need someone to pickup 1 big tree. If you are interested, you can contact me here for more details.', city: "Falun", price: '55€', status: true, category: 'Wood')
 Request.create(user: spiros, title: 'Christmas trees', description: 'I need someone to pickup 3 Christmas trees. If you are interested, you can contact me here for more details.', city: "Korfu", price: '50€', status: true, category: 'Wood')
+
 
 # Metal
 Request.create(user: spiros, title: 'Metal ', description: 'I need help picking up a lot of metal trash. Contact me here for more details.', city: "Munich", price: '50€', status: true, category: 'Metal')
