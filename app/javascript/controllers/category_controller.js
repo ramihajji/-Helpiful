@@ -8,8 +8,9 @@ export default class extends Controller {
     console.log("The 'category' controller is now loaded!");
   }
 
-  index() {
-    window.open("http://localhost:3000/requests/","_self");
+  index(event) {
+    const target = event.params.id;
+    window.open(`http://localhost:3000/requests?search%5Bcategory%5D=${target}&search%5Bcity%5D=`,"_self");
   }
 
 
