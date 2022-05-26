@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index ]
-  before_action :set_request, only: [ :show, :update, :destroy, :edit]
+  skip_before_action :authenticate_user!, only: [:index]
+  before_action :set_request, only: %i[show update destroy edit]
 
   def index
     if params[:search][:category].empty? && params[:search][:city].empty?
@@ -13,11 +13,21 @@ class RequestsController < ApplicationController
       @requests = policy_scope(Request.where(category: params[:search][:category], city: params[:search][:city]))
     end
   end
-  
+
   def new
     @request = Request.new
     authorize @request
   end
+
+  # def show
+  #   @markers = @requests.geocoded.map do |request|
+  #     {
+  #       lat: request.latitude,
+  #       lng: request.longitude,
+  #       info_window: render_to_string(partial: "info_window", locals: { request: request })
+  #     }
+  #   end
+  # end
 
   def create
     @request = Request.new
