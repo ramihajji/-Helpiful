@@ -9,19 +9,13 @@
   <div class="container-info">
     <h1><%= @request.title %></h1>
     <p><strong>€ <%= @request.price %></strong></p>
-  </div>
-  <p class="description"><%= @request.description %></p>
-  <div class="container-info">
-    <%= link_to "Make offer", new_request_offer_path(@request), class: "btn btn-warning" %>
-    <p>📍<strong><%= @request.city %></strong></p>
-  </div>
-</div>
-</div>
-
-<div
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-  class="col-sm-8"></div>
-  </div>
+        <%= link_to "Make offer", new_request_offer_path(@request), class: "btn btn-warning" %>
+        <p>📍<strong><%= @request.city %></strong></p>
+      </div>
+    </div>
    </div>
+  <div
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
