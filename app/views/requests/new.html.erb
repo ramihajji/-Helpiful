@@ -2,14 +2,14 @@
 <div class="profile-container">
   <div class="profile-menu">
     <p> <%= link_to "Make a request", new_request_path %> </p>
-    <p> <%= link_to "all request", requests_path %> </p>
-    <p> <%= link_to "all request", requests_path %> </p>
+    <p> <%= link_to "My requests", profile_path %> </p>
+    <p> <%= link_to "My offers", "#" %> </p>
   </div>
 
   <div class="profile-content">
     <div class="mx-5 mb-5">
-          <h3>Your request</h3>
-          <%= render 'form', request: @request %>
+      <h3>Your request</h3>
+      <%= render 'form', request: @request %>
     </div>
   </div>
 </div>

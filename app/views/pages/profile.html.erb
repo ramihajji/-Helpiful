@@ -1,51 +1,100 @@
-<div class="profile-container">
+<div class="profile-container"  data-controller="profiles">
   <div class="profile-menu">
     <p> <%= link_to "Make a request", new_request_path %> </p>
-    <p> <%= link_to "all request", requests_path %> </p>
-    <p> <%= link_to "all request", requests_path %> </p>
+    <p data-action="click->profiles#index" data-profiles-class-param="my-requests"> My requests </p>
+    <p data-action="click->profiles#index" data-profiles-class-param="my-offers"> My offers </p>
   </div>
 
   <div class="profile-content">
-    <% if current_user.requests %>
-    <p>Here are all your requests</p>
+
+    <%# My requests %>
+    <div class="my-requests" data-profiles-target="requests">
+      <% if current_user.requests %>
+        <p>Here are all your requests</p>
+        <div class="profile-container-requests">
+          <% current_user.requests.each do |request| %>
+            <div class="col-sm-6 col-md-6 col-lg-4 ">
+              <div class="request-card">
+                <div class="profile-request-image-container">
+                  <%= image_tag "HELPIFUL.png", height: 200, crop: :fill %>
+                </div>
+                <div class="request-info">
+                  <div class="request-card-info">
+                    <p class="card-price"><i class="fa-solid fa-euro-sign"></i> <%= request.price %></p>
+                    <p class="card-title"><%= request.title%></p>
+                  </div>
+                  <!-- Button trigger modal -->
+                  <div class="request-card-footer">
+                    <button type="button" class="btn btn-warning read-more" data-bs-toggle="modal" data-bs-target="#s<%= request.id.to_s %>">
+                    Show
+                    </button>
+                    <p class="card-city"><i class="fa-solid fa-location-dot"></i> <%= request.city %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="s<%= request.id.to_s %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel"><%= request.title %></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p class="modal-reward"><i class="fa-solid fa-euro-sign"></i> <%= request.price %></p>
+                    <p class="modal-description"><%= request.description %></p>
+                    <p class="modal-city"><i class="fa-solid fa-location-dot"></i> <%= request.city %></p>
+                  </div>
+
+                  <div class="modal-offers">
+                    <% request.offers.each do |offer| %>
+                      <div class="modal-offer">
+                        <p> <%= offer.created_at %></p>
+                        <p> <%= offer.user.first_name %> <%= offer.user.first_name %></p>
+                        <p> <%= offer.message %></p>
+                        <button type="button", class="btn btn-outline-success">Accept</button>
+                        <button type="button", class="btn btn-outline-danger">Reject</button>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <p>You don't have any requests. Let's make one!</p>
+      <% end %>
+    </div>
+
+    <%# My offers %>
+    <div class="my-offers" data-profiles-target="offers">
+    <% if current_user.offers %>
+      <p>Here are all your offers</p>
       <div class="profile-container-requests">
-        <% current_user.requests.each do |request| %>
+        <% current_user.offers.each do |offer| %>
           <div class="col-sm-6 col-md-6 col-lg-4 ">
             <div class="request-card">
               <div class="profile-request-image-container">
-                <%= image_tag "HELPIFUL.png", height: 200, crop: :fill %>
+                <% if offer.request.photo.present? %>
+                  <%= image_tag offer.request.photo, height: 200, crop: :fill %>
+                <% else %>
+                  <%= image_tag "HELPIFUL.png", height: 200, crop: :fill %>
+                <% end %>
               </div>
               <div class="request-info">
-              <div class="request-card-info">
-                <p class="card-price"><i class="fa-solid fa-euro-sign"></i> <%= request.price %></p>
-                <p class="card-title"><%= request.title%></p>
-              </div>
-              <!-- Button trigger modal -->
-              <div class="request-card-footer">
-                <button type="button" class="btn btn-warning read-more" data-bs-toggle="modal" data-bs-target="#s<%= request.id.to_s %>">
-                Show
-                </button>
-                <p class="card-city"><i class="fa-solid fa-location-dot"></i> <%= request.city %></p>
-              </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Modal -->
-          <div class="modal fade" id="s<%= request.id.to_s %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h2 class="modal-title" id="exampleModalLabel"><%= request.title %></h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="request-card-info">
+                  <p class="card-price">Reward <i class="fa-solid fa-euro-sign"></i> <%= offer.request.price %></p>
+                  <p class="card-title"><%= offer.request.title%></p>
                 </div>
-                <div class="modal-body">
-                  <p class="modal-reward"><i class="fa-solid fa-euro-sign"></i> <%= request.price %></p>
-                  <p class="modal-description"><%= request.description %></p>
-                  <p class="modal-city"><i class="fa-solid fa-location-dot"></i> <%= request.city %></p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                <!-- Button trigger modal -->
+                <div class="request-card-footer">
+                  <p class="card-city"><i class="fa-solid fa-location-dot"></i> <%= offer.request.city %></p>
                 </div>
               </div>
             </div>
@@ -53,8 +102,8 @@
         <% end %>
       </div>
     <% else %>
-      <p>You don't have any requests. Let's make one!</p>
+       <p>You haven't made any offers!</p>
     <% end %>
-
+    </div>
   </div>
 </div>
