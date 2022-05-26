@@ -18,7 +18,7 @@ task = Request.new(
     city: "Berlin",
     category: "Furniture",
     price: "50",
-    address: "Mannheimer Straße 1, Berlin"
+    address: "Mannheimer Straße 1, Berlin",
     status: false
   }
 )
