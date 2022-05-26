@@ -10,14 +10,16 @@
 <div class="container">
   <div class="cards-category-container" data-controller="category" >
     <% Request::CATEGORIES.each do |category| %>
-      <div class="card-trip"  data-action="click->category#index" data-category-id-param="<%= category %>">
-        <%= image_tag("pexels-anna-tarazevich-5697250.jpg") %>
-        <div class="card-trip-infos">
-          <div>
-            <h2 data-category-target="card"><%= category %></h2>
+      <%= link_to requests_path(params: { search: {category: category} }) do %>
+        <div class="card-trip">
+          <%= image_tag("pexels-anna-tarazevich-5697250.jpg") %>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= category %></h2>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
