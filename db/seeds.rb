@@ -18,6 +18,7 @@ task = Request.new(
     city: "Berlin",
     category: "Furniture",
     price: "50",
+    address: "Mannheimer Straße 1, Berlin"
     status: false
   }
 )
@@ -30,8 +31,8 @@ task.save!
 puts "Request created"
 
 # Furniture
-Request.create(user: spiros, title: 'Need to get rid of old desk', description: 'I have a 10 year old desk table that I would like to get rid of. If you are interested, you can contact me here for more details.', city: "Munich", price: '50€', status: true, category: 'Furniture')
-Request.create(user: spiros, title: 'Need to get rid of old closet', description: 'I have an old closet that I would like to get rid of. If you are interested, you can contact me here for more details.', city: 'Stockholm', price: '60€', status: false, category: 'Furniture')
+Request.create(user: spiros, title: 'Need to get rid of old desk', description: 'I have a 10 year old desk table that I would like to get rid of. If you are interested, you can contact me here for more details.', city: "Munich", price: '50€', status: true, category: 'Furniture', address: 'Leopoldstraße 15, Munich')
+Request.create(user: spiros, title: 'Need to get rid of old closet', description: 'I have an old closet that I would like to get rid of. If you are interested, you can contact me here for more details.', city: 'Stockholm', price: '60€', status: false, category: 'Furniture', address: 'Stortorget 2, Stockholm')
 Request.create(user: spiros, title: 'Need to get rid of couch', description: 'I have a couch I would like to get rid of. If you are interested, you can contact me here for more details.', city: "Athena", price: '60€', status: true, category: 'Furniture')
 Request.create(user: spiros, title: 'TV giveaway', description: 'I have an extra TV. If you are interested, you can contact me here for more details.', city: "Hamburg", price: '20€', status: true, category: 'Furniture')
 Request.create(user: spiros, title: 'Need to get rid of my bed', description: 'I have a bed I would like to get rid of. If you are interested, you can contact me here for more details.', city: "Falun", price: '55€', status: true, category: 'Furniture')
@@ -41,7 +42,7 @@ Request.create(user: spiros, title: 'New dresser!', description: 'I have dresser
 
 # Gardening
 Request.create(user: spiros, title: 'Plant flowers', description: 'I need help with planting some flowers. Contact me here for more details.', city: "Munich", price: '50€', status: true, category: 'Gardening')
-Request.create(user: spiros, title: 'Mowing the lawn', description: 'I need help with mowing the lawn 1 time per week. If you are interested, you can contact me here for more details.', city: 'Stockholm', price: '60€', status: false, category: 'Gardening')
+Request.create(user: spiros, title: 'Mowing the lawn', description: 'I need help with mowing the lawn 1 time per week. If you are interested, you can contact me here for more details.', city: 'Stockholm', price: '60€', status: false, category: 'Gardening', address: 'Riksgatan 1, Stockholm')
 Request.create(user: spiros, title: 'Trim bushes', description: 'I need help with trimming my bushes. If you are interested, you can contact me here for more details.', city: "Athena", price: '60€', status: true, category: 'Gardening')
 Request.create(user: spiros, title: 'Pull weeds', description: 'I need help with pulling weeds from my backyard 1 time per month. If you are interested, you can contact me here for more details.', city: "Hamburg", price: '20€', status: true, category: 'Gardening')
 Request.create(user: spiros, title: 'Lay gravel', description: 'I need help to lay gravel. If you are interested, you can contact me here for more details.', city: "Falun", price: '55€', status: true, category: 'Gardening')

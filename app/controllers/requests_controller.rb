@@ -19,15 +19,16 @@ class RequestsController < ApplicationController
     authorize @request
   end
 
-  # def show
-  #   @markers = @requests.geocoded.map do |request|
-  #     {
-  #       lat: request.latitude,
-  #       lng: request.longitude,
-  #       info_window: render_to_string(partial: "info_window", locals: { request: request })
-  #     }
-  #   end
-  # end
+  def show
+    @requests = Request.all
+    @markers = @requests.geocoded.map do |request|
+      {
+        lat: request.latitude,
+        lng: request.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { request: request })
+      }
+    end
+  end
 
   def create
     @request = Request.new
