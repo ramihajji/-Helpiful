@@ -26,6 +26,7 @@ dion = User.new({ email: 'dion@gmail.com', password: '123456', first_name: "Dion
 arbi = User.new({ email: 'arbi@gmail.com', password: '123456', first_name: "Arbi", last_name: "Velaj" })
 
 
+
 spiros.save
 maria.save
 bob.save
@@ -47,6 +48,7 @@ dion.save
 arbi.save
 
 # Furniture
+
 Request.create(user: spiros, title: 'Need to get rid of old desk', description: 'I have a 10 year old desk table that I would like to get rid of. If you are interested, you can contact me here for more details.', city: "Munich", price: '50€', status: true, category: 'Furniture')
 Request.create(user: maria, title: 'Need to get rid of old closet', description: 'I have an old closet that I would like to get rid of. If you are interested, you can contact me here for more details.', city: 'Stockholm', price: '60€', status: false, category: 'Furniture')
 Request.create(user: bob, title: 'Need to get rid of couch', description: 'I have a couch I would like to get rid of. If you are interested, you can contact me here for more details.', city: "Athena", price: '60€', status: true, category: 'Furniture')
@@ -65,6 +67,7 @@ Request.create(user: dina, title: 'Lay gravel', description: 'I need help to lay
 Request.create(user: boris, title: 'Dig holes', description: 'I need help with digging a hole. If you are interested, you can contact me here for more details.', city: "Korfu", price: '50€', status: true, category: 'Gardening')
 Request.create(user: pedro, title: 'Plant tree', description: 'I need help with a tree. If you are interested, you can contact me here for more details.', city: "Sibiu", price: '30€', status: true, category: 'Gardening')
 Request.create(user: lucas, title: 'Grind stump', description: 'I need help to grind a stump. If you are interested, you can contact me here for more details.', city: "Bukarest", price: '50€', status: true, category: 'Gardening')
+
 
 # Trash
 Request.create(user: luca, title: '3 big trash bags', description: 'I need help with planting some flowers. Contact me here for more details.', city: "Munich", price: '50€', status: true, category: 'Trash')
