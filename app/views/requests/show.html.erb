@@ -1,18 +1,19 @@
-<div class="container d-flex justify-content-center">
-  <div class="container-request-card">
-    <div class="request-card">
-      <div class="container-info">
-        <h1><%= @request.title %></h1>
-        <p><strong>€ <%= @request.price %></strong></p>
-      </div>
-        
-      <p class="description"><%= @request.description %></p>
-      <div class="container-info">
+<div class="container">
+<div class="row">
+<div class="container-request-card">
+<div class="request-card">
+  <div class="image-tag">
+  <%= cl_image_tag @request.photo.key, height: 200, crop: :fill %>
+  </div>
+
+  <div class="container-info">
+    <h1><%= @request.title %></h1>
+    <p><strong>€ <%= @request.price %></strong></p>
         <%= link_to "Make offer", new_request_offer_path(@request), class: "btn btn-warning" %>
         <p>📍<strong><%= @request.city %></strong></p>
       </div>
     </div>
-  </div>
+   </div>
   <div
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
