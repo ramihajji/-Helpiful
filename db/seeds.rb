@@ -5,7 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 
-spiros = User.new({ email: 'spiros12@gmail.com', password: '123456' })
+spiros = User.new({ email: 'spiros12@gmail.com', password: '123456', first_name: "Spiros", last_name: "Tsiakalos" })
+maria = User.new({ email: 'maria@gmail.com', password: '123456', first_name: "Maria", last_name: "Pigazzi" })
+bob = User.new({ email: 'bob@gmail.com', password: '123456', first_name: "Bob", last_name: "Marley" })
+finn = User.new({ email: 'finn@gmail.com', password: '123456', first_name: "Finn", last_name: "Sturenburg" })
+mahmoud = User.new({ email: 'mahmoud@gmail.com', password: '123456', first_name: "Mahmoud", last_name: "Hajji" })
+raisa = User.new({ email: 'raise@gmail.com', password: '123456', first_name: "Raisa", last_name: "Tarase" })
+alex = User.new({ email: 'alex@gmail.com', password: '123456', first_name: "Alexandra", last_name: "Hedman" })
+vincent = User.new({ email: 'vincent@gmail.com', password: '123456', first_name: "Vincent", last_name: "Stuber" })
+connor = User.new({ email: 'connor@gmail.com', password: '123456', first_name: "Connor", last_name: "Ford" })
+eden = User.new({ email: 'eden@gmail.com', password: '123456', first_name: "Eden", last_name: "Lan" })
+jonathan = User.new({ email: 'jonathan@gmail.com', password: '123456', first_name: "Jonathan", last_name: "McLachlan" })
+sophie = User.new({ email: 'sophie@gmail.com', password: '123456', first_name: "Sophie", last_name: "Sorin" })
+dina = User.new({ email: 'dina@gmail.com', password: '123456', first_name: "Dina", last_name: "Hansen" })
+boris = User.new({ email: 'boris@gmail.com', password: '123456', first_name: "Boris", last_name: "Knezevic" })
+pedro = User.new({ email: 'pedro@gmail.com', password: '123456', first_name: "Pedro", last_name: "Miranda" })
+lucas = User.new({ email: 'lucas@gmail.com', password: '123456', first_name: "Lucas", last_name: "Laurencich" })
+luca = User.new({ email: 'luca@gmail.com', password: '123456', first_name: "Luca", last_name: "Severo" })
+dion = User.new({ email: 'dion@gmail.com', password: '123456', first_name: "Dion", last_name: "Shahini" })
+arbi = User.new({ email: 'arbi@gmail.com', password: '123456', first_name: "Arbi", last_name: "Velaj" })
+
+
 
 spiros.save
 puts "Spiros created"
@@ -29,6 +49,25 @@ task.user = spiros
 task.save!
 
 puts "Request created"
+
+maria.save
+bob.save
+finn.save
+mahmoud.save
+raisa.save
+alex.save
+vincent.save
+connor.save
+eden.save
+jonathan.save
+sophie.save
+dina.save
+boris.save
+pedro.save
+lucas.save
+luca.save
+dion.save
+arbi.save
 
 # Furniture
 Request.create(user: spiros, title: 'Need to get rid of old desk', description: 'I have a 10 year old desk table that I would like to get rid of. If you are interested, you can contact me here for more details.', city: "Munich", price: '50€', status: true, category: 'Furniture', address: 'Leopoldstraße 15, Munich')
