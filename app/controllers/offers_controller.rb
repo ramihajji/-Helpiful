@@ -1,8 +1,8 @@
 class OffersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
-  skip_after_action :verify_policy_scoped, only:[ :index ]
-  before_action :set_offer, only: [ :show ]
-  before_action :set_request, only: [ :new, :create ]
+  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_after_action :verify_policy_scoped, only: [:index]
+  before_action :set_offer, only: [:show]
+  before_action :set_request, only: %i[new create]
 
   def index
     @offers = current_user.offers
