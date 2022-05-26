@@ -10,6 +10,7 @@
 <div class="container">
   <div class="cards-category-container" data-controller="category">
     <% Request::CATEGORIES.each do |category| %>
+
       <div class="card-trip"  data-action="click->category#index" data-category-id-param="<%= category %>">
         <% if Rails.application.assets.find_asset("#{category}.jpg").nil? %>
           <%= image_tag("HELPIFUL.png") %>
@@ -21,7 +22,7 @@
             <h2 data-category-target="card"><%= category %></h2>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

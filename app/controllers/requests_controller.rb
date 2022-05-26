@@ -3,14 +3,15 @@ class RequestsController < ApplicationController
   before_action :set_request, only: %i[show update destroy edit]
 
   def index
-    if params[:search][:category].present? && params[:search][:city].present?
+    if !params[:search][:category].present? && !params[:search][:city].present?
+      @requests = policy_scope(Request.all)
+    elsif params[:search][:category].present? && params[:search][:city].present?
       @requests = policy_scope(Request.search_by_city(params[:search][:city]).search_by_category(params[:search][:category]))
     elsif params[:search][:category] && !params[:search][:city].present?
       @requests = policy_scope(Request.search_by_category(params[:search][:category]))
     elsif !params[:search][:category].present? && params[:search][:city]
       @requests = policy_scope(Request.search_by_city(params[:search][:city]))
-    else
-      @requests = policy_scope(Request.all)
+
     end
   end
 
