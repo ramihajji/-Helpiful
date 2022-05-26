@@ -20,13 +20,12 @@ class RequestsController < ApplicationController
   end
 
   def show
-    @requests = Request.all
-    @markers = @requests.geocoded.map do |request|
-      {
-        lat: request.latitude,
-        lng: request.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { request: request })
-      }
+    if @request.latitude != nil && @request.longitude != nil
+    @markers = [{
+        lat: @request.latitude,
+        lng: @request.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { request: @request })
+      }]
     end
   end
 
