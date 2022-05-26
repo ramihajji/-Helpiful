@@ -31,7 +31,7 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @request = Request.new
+    @request = Request.new(request_params)
     @request.user = current_user
     authorize @request
     if @request.save
@@ -60,7 +60,7 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:title, :description, :city, :price, :status, :photo)
+    params.require(:request).permit(:title, :description, :city, :price, :status, :photo, :address)
   end
 
   def set_request
