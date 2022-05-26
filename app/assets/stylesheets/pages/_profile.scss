@@ -1,0 +1,25 @@
+.profile-container {
+  display: flex;
+
+
+  .profile-menu {
+    padding: 50px 100px;
+
+    a {
+      color: black;
+    }
+
+  }
+
+  .profile-content {
+    flex: 1;
+    padding-top: 50px;
+  }
+}
+
+.profile-container-requests {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-right: 100px;
+}
