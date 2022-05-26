@@ -5,8 +5,10 @@
   .profile-menu {
     padding: 50px 100px;
 
-    a {
+    p, a {
       color: black;
+      cursor: pointer;
+      text-decoration: underline;
     }
 
   }
@@ -14,12 +16,37 @@
   .profile-content {
     flex: 1;
     padding-top: 50px;
+
+
   }
 }
+
+.my-requests {
+  display: none;
+
+}
+
+.my-offers {
+  display: none;
+}
+
+.active-tab {
+  display: block;
+}
+
 
 .profile-container-requests {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   padding-right: 100px;
+}
+
+.modal-offers {
+  margin: 16px;
+
+  .modal-offer {
+    padding: 16px;
+    border: 1px solid lightgray;
+  }
 }
