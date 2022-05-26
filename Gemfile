@@ -26,7 +26,7 @@ gem 'pundit'
 gem 'cloudinary', '~> 1.16.0'
 gem "geocoder"
 gem 'pg_search', '~> 2.3.0'
-
+gem 'htmlbeautifier'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -40,7 +40,7 @@ gem 'simple_form', github: 'heartcombo/simple_form'
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', groups: [:development, :test]
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
