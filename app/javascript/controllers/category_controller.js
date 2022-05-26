@@ -10,7 +10,7 @@ export default class extends Controller {
 
   index(event) {
     const target = event.params.id;
-    window.open(`https://helpiful.herokuapp.com//requests?search%5Bcategory%5D=${target}&search%5Bcity%5D=`,"_self");
+    window.open(`http://localhost:3000/requests?search%5Bcategory%5D=${target}&search%5Bcity%5D=`,"_self");
   }
 
 

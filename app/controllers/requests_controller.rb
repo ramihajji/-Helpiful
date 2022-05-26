@@ -11,7 +11,7 @@ class RequestsController < ApplicationController
       @requests = policy_scope(Request.where(city: params[:search][:city]))
     else
       @requests = policy_scope(Request.where(category: params[:search][:category], city: params[:search][:city]))
-    end
+  end
   end
 
   def new
