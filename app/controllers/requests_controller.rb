@@ -11,7 +11,6 @@ class RequestsController < ApplicationController
       @requests = policy_scope(Request.search_by_category(params[:search][:category]))
     elsif !params[:search][:category].present? && params[:search][:city]
       @requests = policy_scope(Request.search_by_city(params[:search][:city]))
-
     end
   end
 
