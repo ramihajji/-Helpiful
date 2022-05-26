@@ -10,23 +10,6 @@
           <li><a href="#" class="nav-link px-2 text-white">About us</a></li>
         </ul>
 
-        <%# <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-        </form> %>
-
-
-        <%# <%= form_tag requests_path, method: :get do %>
-            <%# <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Search for requests"
-            %>
-            <%# <%= submit_tag "Search", class: "btn btn-primary" %>
-        <%# <% end %>
-
-
-
-
         <div class="text-end">
           <% if current_user && current_page?(:controller => 'pages', :action => 'profile') %>
           <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-light me-2'%>
