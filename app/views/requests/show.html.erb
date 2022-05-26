@@ -1,18 +1,22 @@
-<div class="container-request-card">
-<div class="request-card">
-  <div class="container-info">
-    <h1><%= @request.title %></h1>
-    <p><strong>€ <%= @request.price %></strong></p>
-  </div>
-  <p class="description"><%= @request.description %></p>
-  <div class="container-info">
-    <%= link_to "Make offer", new_request_offer_path(@request), class: "btn btn-warning" %>
-    <p>📍<strong><%= @request.city %></strong></p>
-  </div>
-</div>
-</div>
+<div class="container">
+  <div class="row">
+    <div class="container-request-card col-sm-4">
+    <div class="request-card">
+    <div class="container-info">
+      <h1><%= @request.title %></h1>
+      <p><strong>€ <%= @request.price %></strong></p>
+    </div>
+    <p class="description"><%= @request.description %></p>
+    <div class="container-info">
+      <%= link_to "Make offer", new_request_offer_path(@request), class: "btn btn-warning" %>
+      <p>📍<strong><%= @request.city %></strong></p>
+    </div>
+    </div>
+    </div>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+   <div style="width: 100%; height: 600px;"
+     data-controller="mapbox"
+     data-mapbox-markers-value="<%= @markers.to_json %>"
+     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %> col-sm-8"></div>
+  </div>
+</div>
