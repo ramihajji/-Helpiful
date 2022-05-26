@@ -3,14 +3,14 @@
         <div class="form-inputs">
           <%= f.input :title %>
           <%= f.input :description %>
-          <%= f.input :address %>
+          <%= f.input :city, collection: Request::CITIES %>
+          <%= f.input :category, collection: Request::CATEGORIES %>
           <%= f.input :price %>
-          <%= f.input :category %>
-          <%= f.input :photo, as: :file%>
+          <%= f.input :photo, as: :file %>
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, class: "btn btn-primary" %>
+          <%= f.button :submit, class: "btn btn-warning" %>
         </div>
     <% end %>
 </div>
