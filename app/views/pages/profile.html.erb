@@ -9,8 +9,12 @@
 
   <div class="profile-content">
 
+<<<<<<< HEAD
+<%# My requests  %>
+=======
     <%# My requests %>
 
+>>>>>>> c80426390509e6790b5198fb71afe70fb227c9e5
     <div class="my-requests active-tab" data-profiles-target="requests">
       <% if current_user.requests %>
         <p>Here are all your requests</p>
@@ -35,6 +39,22 @@
                   <p class="card-city"><i class="fa-solid fa-location-dot"></i> <%= request.city %></p>
                 </div>
             </div>
+<<<<<<< HEAD
+            <div class="request-info">
+              <%= link_to "Edit", edit_request_path(request) %><%= link_to "Delete", request_path(request), method: :delete, data: { confirm: "Are you sure you want to delete this request?" } %>
+                <div class="request-card-info">
+                  <p class="card-price">Reward: <i class="fa-solid fa-euro-sign"></i> <%= request.price %></p>
+                  <p class="card-title"><%= request.title%></p>
+                </div>
+                <!-- Button trigger modal -->
+                <div class="request-card-footer">
+                  <button type="button" class="btn btn-warning read-more" data-bs-toggle="modal" data-bs-target="#s<%= request.id.to_s %>">
+                  Show
+                  </button>
+                  <p class="card-city"><i class="fa-solid fa-location-dot"></i> <%= request.city %></p>
+                </div>
+=======
+>>>>>>> c80426390509e6790b5198fb71afe70fb227c9e5
             </div>
           </div>
 
@@ -99,6 +119,15 @@
               </div>
               <div class="request-info">
                 <div class="request-card-info">
+<<<<<<< HEAD
+                  <p class="card-price">Reward <i class="fa-solid fa-euro-sign"></i> <%= offer.request.price %></p>
+                  <p class="card-title"><%= offer.request.title%></p>
+                </div>
+                <%= link_to "Delete", offer_path(offer), method: :delete, data: { confirm: "Are you sure you want to delete this request?" } %>
+              </div>
+              <div class="request-card-footer">
+                <p class="card-city"><i class="fa-solid fa-location-dot"></i> <%= offer.request.city %></p>
+=======
                     <span class="card-title"><%= offer.request.title%> &nbsp; &nbsp;</span>
                     <span class="card-price">Reward <i class="fa-solid fa-euro-sign"></i> <%= offer.request.price %></span>
 
@@ -117,6 +146,7 @@
               </div>
               <div class="request-card-footer">
                 <%= link_to "Delete", offer_path(offer), method: :delete, data: { confirm: "Are you sure you want to delete this request?" }, class: "btn btn-dark btn-sm" %>
+>>>>>>> c80426390509e6790b5198fb71afe70fb227c9e5
               </div>
             </div>
           </div>
@@ -128,4 +158,8 @@
     </div>
 
   </div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> c80426390509e6790b5198fb71afe70fb227c9e5
