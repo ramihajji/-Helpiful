@@ -18,11 +18,6 @@ export default class extends Controller {
       this.requestsTarget.classList.remove("active-tab")
       this.offersTarget.classList.add("active-tab")
     }
-
-
-    console.log(element[0] === this.requestsTarget)
-    console.log(element)
-    console.log(this.requestsTarget)
   }
 
 

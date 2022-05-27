@@ -41,8 +41,14 @@
                 <p class="modal-description"><%= request.description %></p>
                 <p class="modal-city"><i class="fa-solid fa-location-dot"></i> <%= request.city %></p>
               </div>
+              <div class="modal-body-offer">
+                <h5>Make an offer!</h5>
+                <%= simple_form_for [request, @offer] do |f| %>
+                <%= f.input :message, class: "form-offer"%>
+                <%= f.submit "Submit offer", class: "btn btn-warning" %>
+                <% end %>
+              </div>
               <div class="modal-footer">
-                <%= link_to "Make offer", new_request_offer_path(request), class: "btn btn-warning" %>
                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
               </div>
             </div>
