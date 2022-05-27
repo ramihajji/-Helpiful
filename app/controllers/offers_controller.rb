@@ -1,15 +1,16 @@
 class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   skip_after_action :verify_policy_scoped, only: [:index]
-  before_action :set_offer, only: [:show, :update]
+  before_action :set_offer, only: [:show, :update, :destroy]
   before_action :set_request, only: %i[new create]
+
 
   def index
     @offers = current_user.offers
   end
 
   def show
-    authorize @offer
+
   end
 
   def new
@@ -30,7 +31,6 @@ class OffersController < ApplicationController
   end
 
   def update
-    authorize @offer
     @offer.status = params[:offer][:status]
     @offer.save
     if @offer.save
@@ -44,10 +44,16 @@ class OffersController < ApplicationController
     end
   end
 
+  def destroy
+    @offer.destroy
+    redirect_to profile_path
+  end
+
   private
 
   def set_offer
     @offer = Offer.find(params[:id])
+    authorize @offer
   end
 
   def set_request
