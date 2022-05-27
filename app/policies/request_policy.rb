@@ -6,6 +6,10 @@ class RequestPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    true
+  end
+
   def create?
     true
   end
@@ -13,6 +17,7 @@ class RequestPolicy < ApplicationPolicy
   def update?
     true
   end
+  
   # def show?
   #   true
   # end

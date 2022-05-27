@@ -2,7 +2,10 @@
 <div class="banner">
   <div class="search-bar">
     <%= simple_form_for :search, url: requests_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-      <%= f.input :category, collection: Request::CATEGORIES %><%= f.input :city, collection: Request::CITIES %><%= f.submit "Search", class: "btn btn-warning" %>
+      <%= f.input :keyword %>
+      <%= f.input :category, collection: Request::CATEGORIES %>
+      <%= f.input :city, collection: Request::CITIES %>
+      <%= f.submit "Search", class: "btn btn-warning" %>
     <% end %>
   </div>
 </div>

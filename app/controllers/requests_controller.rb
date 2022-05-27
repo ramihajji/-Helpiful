@@ -3,15 +3,10 @@ class RequestsController < ApplicationController
   before_action :set_request, only: %i[show update destroy edit]
 
   def index
-    if !params[:search][:category].present? && !params[:search][:city].present?
-      @requests = policy_scope(Request.all)
-    elsif params[:search][:category].present? && params[:search][:city].present?
-      @requests = policy_scope(Request.search_by_city(params[:search][:city]).search_by_category(params[:search][:category]))
-    elsif params[:search][:category] && !params[:search][:city].present?
-      @requests = policy_scope(Request.search_by_category(params[:search][:category]))
-    elsif !params[:search][:category].present? && params[:search][:city]
-      @requests = policy_scope(Request.search_by_city(params[:search][:city]))
-    end
+    @requests = policy_scope(Request.where(nil))
+    @requests = policy_scope(@requests.search_by_category(params[:search][:category])) if params[:search][:category].present?
+    @requests = policy_scope(@requests.search_by_city(params[:search][:city])) if params[:search][:city].present?
+    @requests = policy_scope(@requests.search_by_keyword(params[:search][:keyword])) if params[:search][:keyword].present?
 
     @offer = Offer.new
   end
