@@ -3,8 +3,9 @@
   <div class="profile-menu">
     <p> <%= link_to "Make a request", new_request_path %> </p>
     <p> <%= link_to "My requests", profile_path %> </p>
+        <p data-action="click->profiles#index" data-profiles-class-param="my-offers"> My offers </p>
     <p> <%= link_to "Go back", profile_path %> </p>
-    <p> <%= link_to "Make a request", profile_path %>Update my avatar </p>
+    <%# <p> <%= link_to "Update my avatar" profile_path</p> %>
   </div>
 
   <div class="profile-content">

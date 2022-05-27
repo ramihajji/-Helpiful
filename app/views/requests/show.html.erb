@@ -7,7 +7,7 @@
       <div class="container-info">
         <h1><%= @request.title %></h1>
         <p><strong>€ <%= @request.price %></strong></p>
-        <%= link_to "Make offer", profile_path(@request), class: "btn btn-warning" %>
+        <%= link_to "Make offer", profile_path, class: "btn btn-warning" %>
         <p>📍<strong><%= @request.city %></strong></p>
       </div>
     </div>
