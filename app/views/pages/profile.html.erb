@@ -1,9 +1,10 @@
 <div class="profile-container"  data-controller="profiles">
   <div class="profile-menu">
-    <p> <%= link_to "Make a request", new_request_path %> </p>
+    <p> <%= link_to "My profile", profile_path %> </p>
     <p data-action="click->profiles#index" data-profiles-class-param="my-requests"> My requests </p>
     <p data-action="click->profiles#index" data-profiles-class-param="my-offers"> My offers </p>
-    <p> <%= link_to "Update my avatar", profile_path %> </p>
+    <p> <%= link_to "Make a request", new_request_path %> </p>
+    <p> <%= link_to "Update profile", edit_user_registration_path(current_user) %> </p>
   </div>
 
   <div class="profile-content">
@@ -79,35 +80,35 @@
 
     <%# My offers %>
     <div class="my-offers" data-profiles-target="offers">
-    <% if current_user.offers %>
-      <div class="profile-container-requests">
-        <% current_user.offers.each do |offer| %>
-          <div class="col-sm-6 col-md-6 col-lg-4 ">
-            <div class="request-card">
-              <div class="profile-request-image-container">
-                <% if offer.request.photo.present? %>
-                  <%= image_tag offer.request.photo, height: 200, crop: :fill %>
-                <% else %>
-                  <%= image_tag "HELPIFUL.png", height: 200, crop: :fill %>
-                <% end %>
-              </div>
-              <div class="request-info">
-                <div class="request-card-info">
-                  <p class="card-price">Reward <i class="fa-solid fa-euro-sign"></i> <%= offer.request.price %></p>
-                  <p class="card-title"><%= offer.request.title%></p>
+      <% if current_user.offers %>
+        <div class="profile-container-requests">
+          <% current_user.offers.each do |offer| %>
+            <div class="col-sm-6 col-md-6 col-lg-4 ">
+              <div class="request-card">
+                <div class="profile-request-image-container">
+                  <% if offer.request.photo.present? %>
+                    <%= image_tag offer.request.photo, height: 200, crop: :fill %>
+                  <% else %>
+                    <%= image_tag "HELPIFUL.png", height: 200, crop: :fill %>
+                  <% end %>
                 </div>
-                <!-- Button trigger modal -->
-                <div class="request-card-footer">
-                  <p class="card-city"><i class="fa-solid fa-location-dot"></i> <%= offer.request.city %></p>
+                <div class="request-info">
+                  <div class="request-card-info">
+                    <p class="card-price">Reward <i class="fa-solid fa-euro-sign"></i> <%= offer.request.price %></p>
+                    <p class="card-title"><%= offer.request.title%></p>
+                  </div>
+                  <!-- Button trigger modal -->
+                  <div class="request-card-footer">
+                    <p class="card-city"><i class="fa-solid fa-location-dot"></i> <%= offer.request.city %></p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        <% end %>
-      </div>
-    <% else %>
-       <p>You haven't made any offers!</p>
-    <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <p>You haven't made any offers!</p>
+      <% end %>
     </div>
 
     <%# Update avatar %>

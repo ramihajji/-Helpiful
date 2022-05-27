@@ -1,0 +1,59 @@
+<div class="profile-container" data-controller="profiles">
+  <div class="profile-menu">
+    <p> <%= link_to "My profile", profile_path %> </p>
+    <p> <%= link_to "My requests", profile_path %> </p>
+    <p> <%= link_to "Make a request", new_request_path %> </p>
+    <p> <%= link_to "Update profile", edit_user_registration_path(current_user) %> </p>
+  </div>
+
+  <div class="profile-content">
+    <div class="mx-5 mb-5">
+      <h1>Edit my profile</h1>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+
+          <%= f.input :password,
+                      hint: "leave it blank if you don't want to change it",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :current_password,
+                      hint: "we need your current password to confirm your changes",
+                      required: true,
+                      input_html: { autocomplete: "current-password" } %>
+          <%= f.input   :first_name,
+                      hint: "we need your first name password to confirm your changes",
+                      required: true,
+                      input_html: { autocomplete: "current-first_name" } %>
+          <%= f.input   :last_name,
+                      hint: "we need your last name password to confirm your changes",
+                      required: true,
+                      input_html: { autocomplete: "current-last_name" } %>
+          <%= f.input :avatar, as: :file %>
+
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Update", class: "btn btn-warning" %>
+        </div>
+      <% end %>
+
+      <div class="cancel">
+        <h5>Cancel my account</h3>
+
+        <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure you want to delete your account?" }, method: :delete, class: "btn btn-dark" %>
+      </div>
+
+    </div>
+  </div>
+
+</div>

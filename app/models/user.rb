@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :requests
   has_many :offers, through: :requests
-  has_one_attached :image
+  has_one_attached :avatar
 end
