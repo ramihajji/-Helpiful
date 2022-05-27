@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     resources :requests do
       resources :offers, only: [:create]
     end
-    resources :offers , only: [:show, :update]
+    resources :offers , only: [:show, :update, :destroy]
       # resources :offers
 end
