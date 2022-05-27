@@ -80,17 +80,24 @@
 
     <%# My offers %>
     <div class="my-offers" data-profiles-target="offers">
-      <% if current_user.offers %>
-        <div class="profile-container-requests">
-          <% current_user.offers.each do |offer| %>
-            <div class="col-sm-6 col-md-6 col-lg-4 ">
-              <div class="request-card">
-                <div class="profile-request-image-container">
-                  <% if offer.request.photo.present? %>
-                    <%= image_tag offer.request.photo, height: 200, crop: :fill %>
-                  <% else %>
-                    <%= image_tag "HELPIFUL.png", height: 200, crop: :fill %>
-                  <% end %>
+
+    <% if current_user.offers %>
+      <div class="profile-container-requests">
+        <% current_user.offers.each do |offer| %>
+          <div class="col-sm-6 col-md-6 col-lg-4 ">
+            <div class="request-card">
+              <div class="profile-request-image-container">
+                <% if offer.request.photo.present? %>
+                  <%= image_tag offer.request.photo, height: 200, crop: :fill %>
+                <% else %>
+                  <%= image_tag "Doggy.png", height: 200, crop: :fill %>
+                <% end %>
+              </div>
+              <div class="request-info">
+                <div class="request-card-info">
+                  <p class="card-price">Reward <i class="fa-solid fa-euro-sign"></i> <%= offer.request.price %></p>
+                  <p class="card-title"><%= offer.request.title%></p>
+                  
                 </div>
                 <div class="request-info">
                   <div class="request-card-info">
