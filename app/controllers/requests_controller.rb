@@ -50,7 +50,7 @@ class RequestsController < ApplicationController
 
   def destroy
     @request.destroy
-    redirect_to requests
+    redirect_to profile_path
   end
 
   private
