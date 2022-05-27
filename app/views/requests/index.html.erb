@@ -43,7 +43,7 @@
                 <p class="modal-description"><%= request.description %></p>
                 <p class="modal-city"><i class="fa-solid fa-location-dot"></i> <%= request.city %></p>
                 <div class="map-container">
-                  <div class="map"
+                  <div class="map" id="test"
                     <% @markers = [{
                       lat: request.latitude,
                       lng: request.longitude,

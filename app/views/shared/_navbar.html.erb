@@ -11,7 +11,7 @@
         </ul>
 
         <div class="text-end">
-          <% if current_user && current_page?(:controller => 'pages', :action => 'profile') %>
+          <% if current_user %>
           <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-light me-2'%>
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
           <% elsif current_user %>
