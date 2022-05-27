@@ -12,6 +12,8 @@ class RequestsController < ApplicationController
     elsif !params[:search][:category].present? && params[:search][:city]
       @requests = policy_scope(Request.search_by_city(params[:search][:city]))
     end
+
+    @offer = Offer.new
   end
 
   def new
