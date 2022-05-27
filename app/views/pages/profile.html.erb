@@ -20,7 +20,7 @@
                   <%= image_tag "HELPIFUL.png", height: 200, crop: :fill %>
                 </div>
                 <div class="request-info">
-                  <%= link_to "Edit", edit_request_path(request) %><%= link_to "Delete", request_path(request), :method => :delete, data: { confirm: "Are you sure you want to delete this request?" } %>
+                  <%= link_to "Edit", edit_request_path(request) %><%= link_to "Delete", request_path(request), method: :delete, data: { confirm: "Are you sure you want to delete this request?" } %>
 
                   <div class="request-card-info">
                     <p class="card-price">Reward: <i class="fa-solid fa-euro-sign"></i> <%= request.price %></p>
@@ -59,7 +59,7 @@
                         <p> <%= offer.user.first_name %> <%= offer.user.last_name %></p>
                         <p> <%= offer.message %></p>
                         <%= link_to "Accept", [offer, { offer: { status: 'Accepted' }}], method: :patch %>
-                        <%= link_to "Reject", [offer, { offer: { status: 'rejected' }}], method: :patch %>
+                        <%= link_to "Reject", [offer, { offer: { status: 'Rejected' }}], method: :patch %>
 
                       </div>
                     <% end %>
