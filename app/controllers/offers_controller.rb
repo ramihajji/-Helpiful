@@ -34,6 +34,12 @@ class OffersController < ApplicationController
     @offer.status = params[:offer][:status]
     @offer.save
     if @offer.save
+       rejected_offers = @offer.request.offers.where(status: "Pending")
+       rejected_offers.each do |offer|
+        offer.status = "Rejected"
+        offer.save
+       end
+
       redirect_to profile_path
     end
   end
