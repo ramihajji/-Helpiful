@@ -15,11 +15,7 @@
     <% Request::CATEGORIES.each do |category| %>
       <%= link_to requests_path(params: { search: {category: category} }) do %>
         <div class="card-trip">
-          <% if Rails.application.assets.find_asset("#{category}.jpg").nil? %>
-          <%= image_tag("HELPIFUL.png") %>
-          <% else %>
           <%= image_tag("#{category}.jpg") %>
-          <% end %>
           <div class="card-trip-infos">
             <div>
               <h2><%= category %></h2>
