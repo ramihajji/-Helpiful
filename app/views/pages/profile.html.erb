@@ -59,8 +59,14 @@
                         <p> <%= offer.created_at %></p>
                         <p> <%= offer.user.first_name %> <%= offer.user.last_name %></p>
                         <p> <%= offer.message %></p>
+                        <% if offer.status == "Pending" %>
+                        <span class="text-warning"><%= offer.status %></span>
                         <%= link_to "Accept", [offer, { offer: { status: 'Accepted' }}], method: :patch %>
                         <%= link_to "Reject", [offer, { offer: { status: 'Rejected' }}], method: :patch %>
+                        <% else %>
+                          <p class="<%= offer.status == "Accepted" ? "text-success" : "text-danger" %>">Status: <%= offer.status %></p>
+                        <% end %>
+                        
 
                       </div>
                     <% end %>
@@ -90,7 +96,7 @@
                 <% if offer.request.photo.present? %>
                   <%= image_tag offer.request.photo, height: 200, crop: :fill %>
                 <% else %>
-                  <%= image_tag "Doggy.png", height: 200, crop: :fill %>
+                  <%= image_tag "Doggy.jpg", height: 200, crop: :fill %>
                 <% end %>
               </div>
               <div class="request-info">
