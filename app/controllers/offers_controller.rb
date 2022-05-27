@@ -25,7 +25,7 @@ class OffersController < ApplicationController
     if @offer.save
       redirect_to offer_path(@offer)
     else
-      redirect_to request_path(@request)
+      render :new
     end
   end
 

@@ -8,7 +8,7 @@
 <div class="container">
   <div class="container-request-card">
     <% @requests.each do |request| %>
-    
+
       <div class="col-sm-6 col-md-6 col-lg-4 ">
         <div class="request-card">
           <%= image_tag "HELPIFUL.png", height: 200, crop: :fill %>
@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-    
+
       <!-- Modal -->
       <div class="modal fade" id="s<%= request.id.to_s %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -37,11 +37,12 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              
+
               <div class="container">
                 <p class="modal-reward"><i class="fa-solid fa-euro-sign"></i> <%= request.price %></p>
                 <p class="modal-description"><%= request.description %></p>
                 <p class="modal-city"><i class="fa-solid fa-location-dot"></i> <%= request.city %></p>
+
                 <div class="map-container">
                   <div class="map"
                     <% @markers = [{
@@ -56,22 +57,24 @@
                 </div>
               </div>
 
-              <div class="modal-body-offer">
-                <h5>Make an offer!</h5>
-                <%= simple_form_for [request, @offer] do |f| %>
+              <div class="modal-body-offer" data-remote="true" data-controller="offer">
+                <h5 data-offer-target="error" data-action="ajax:error->offer#onError">Make an offer!</h5>
+                <%= simple_form_for [request, @offer], :html => { data: { :"data-action" => "ajax:error->offer#onError" }} do |f| %>
                 <%= f.input :message, class: "form-offer"%>
                 <%= f.submit "Submit offer", class: "btn btn-warning" %>
+                <br><br>
                 <% end %>
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
               </div>
-              
+
             </div>
           </div>
         </div>
       </div>
-    
+
     <% end %>
   </div>
   <%= link_to "Back to Homepage", root_path, class: "btn btn-light mt-3 mb-3" %>

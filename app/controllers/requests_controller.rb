@@ -1,6 +1,8 @@
 class RequestsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :set_request, only: %i[show update destroy edit]
+  # scope :latest_first, order('created_at DESC')
+  # scope :latest_first, order('updated_at DESC')
 
   def index
     if !params[:search][:category].present? && !params[:search][:city].present?
