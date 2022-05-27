@@ -9,9 +9,13 @@
   <div class="container-request-card">
     <% @requests.each do |request| %>
 
-      <div class="col-sm-6 col-md-6 col-lg-4 ">
+      <div class="col-sm-6 col-md-6 col-lg-4 p-4">
         <div class="request-card">
+
+        <div class="profile-request-image-container">
           <%= image_tag "Doggy.jpg" %>
+          </div>
+
           <div class="request-info">
             <div class="request-card-info">
               <p class="card-price"><i class="fa-solid fa-euro-sign"></i> <%= request.price %></p>
