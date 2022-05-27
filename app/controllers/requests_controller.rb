@@ -54,7 +54,7 @@ class RequestsController < ApplicationController
   end
 
   def destroy
-    @request.delete
+    @request.destroy
     redirect_to requests
   end
 
