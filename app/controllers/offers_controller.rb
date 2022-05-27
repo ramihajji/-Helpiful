@@ -31,7 +31,6 @@ class OffersController < ApplicationController
 
   def update
     authorize @offer
-    # alle offers für das request holen und den status auf rejected setzen außer für das eine was akzeptiert wurde
     @offer.status = params[:offer][:status]
     @offer.save
     if @offer.save
