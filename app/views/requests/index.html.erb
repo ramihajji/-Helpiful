@@ -1,18 +1,18 @@
-  <div id="banner-index">
-    <h1>Here are all the requests in</h1>
-    <h3>Take a look at them and choose a task</h3>
-    <p>
+<div id="banner-index">
+  <h1>Here are all the requests in</h1>
+  <h3>Take a look at them and choose a task</h3>
+  <p>
     <span data-controller="typed-js"></span>
   </p>
-  </div>
-
-   <div class="container">
-    <div class="container-request-card">
-      <% @requests.each do |request| %>
-        <div class="col-sm-6 col-md-6 col-lg-4 ">
-          <div class="request-card">
-            <%= image_tag "HELPIFUL.png", height: 200, crop: :fill %>
-            <div class="request-info">
+</div>
+<div class="container">
+  <div class="container-request-card">
+    <% @requests.each do |request| %>
+    
+      <div class="col-sm-6 col-md-6 col-lg-4 ">
+        <div class="request-card">
+          <%= image_tag "HELPIFUL.png", height: 200, crop: :fill %>
+          <div class="request-info">
             <div class="request-card-info">
               <p class="card-price"><i class="fa-solid fa-euro-sign"></i> <%= request.price %></p>
               <p class="card-title"> <%= link_to "#{request.title}", request_path(request), class: "card-title text-black" %></p>
@@ -20,27 +20,42 @@
             <!-- Button trigger modal -->
             <div class="request-card-footer">
               <button type="button" class="btn btn-warning read-more" data-bs-toggle="modal" data-bs-target="#s<%= request.id.to_s %>">
-              Read more
+                Read more
               </button>
               <p class="card-city"><i class="fa-solid fa-location-dot"></i> <%= request.city %></p>
             </div>
-            </div>
-           </div>
+          </div>
         </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="s<%= request.id.to_s %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h2 class="modal-title" id="exampleModalLabel"><%= request.title %></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
+      </div>
+    
+      <!-- Modal -->
+      <div class="modal fade" id="s<%= request.id.to_s %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="exampleModalLabel"><%= request.title %></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              
+              <div class="container">
                 <p class="modal-reward"><i class="fa-solid fa-euro-sign"></i> <%= request.price %></p>
                 <p class="modal-description"><%= request.description %></p>
                 <p class="modal-city"><i class="fa-solid fa-location-dot"></i> <%= request.city %></p>
+                <div class="map-container">
+                  <div class="map"
+                    <% @markers = [{
+                      lat: request.latitude,
+                      lng: request.longitude,
+                      info_window: render(partial: "info_window", locals: { request: request })
+                    }] %>
+                    data-controller="mapbox"
+                    data-mapbox-markers-value="<%= @markers.to_json %>"
+                    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+                  </div>
+                </div>
               </div>
+
               <div class="modal-body-offer">
                 <h5>Make an offer!</h5>
                 <%= simple_form_for [request, @offer] do |f| %>
@@ -51,16 +66,13 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
               </div>
+              
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
-
-
-
-
-
-
-    <%= link_to "Back to Homepage", root_path, class: "btn btn-light mt-3 mb-3" %>
+      </div>
+    
+    <% end %>
   </div>
+  <%= link_to "Back to Homepage", root_path, class: "btn btn-light mt-3 mb-3" %>
+</div>
