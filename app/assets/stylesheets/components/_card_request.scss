@@ -4,54 +4,51 @@
   flex-wrap: wrap;
   border-radius: 4px;
 }
-
 .request-card {
   height: 500px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 25px;
+  .profile-request-image-container img{
+    overflow: auto;
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+  }
   h1 {
     font-size: 20px;
   }
   strong { font-weight: bold; }
-
   .description {
     font-size: 14px;
   }
 }
-
 .request-info {
   display: flex;
   flex-direction: column;
-  padding: 16px;
-
+  padding: 8px;
   .request-card-info {
     flex-grow: 4;
-
     .card-price {
       text-align: end;
     }
   }
-
   .request-card-footer {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
   }
 }
-
 .form-offer {
   width: 100%
 }
-
 .price {
   text-align: end;
 }
-
 .container-listing {
   margin: 50px 100px;
   border-radius: 4px;
   padding-bottom: 300px;
 }
-
 .image-tag {
   overflow: auto;
   width: 100%;

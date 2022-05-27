@@ -22,10 +22,10 @@
         <p>Here are all your requests</p>
         <div class="profile-container-requests">
           <% current_user.requests.each do |request| %>
-            <div class="col-sm-6 col-md-6 col-lg-4 ">
+            <div class="col-sm-6 col-md-6 col-lg-4 p-4">
               <div class="request-card">
                 <div class="profile-request-image-container">
-                  <%= image_tag "Doggy.jpg", height: 300, width: 420 %>
+                  <%= image_tag "Doggy.jpg" %>
                 </div>
                 <div class="request-info">
                   <%= link_to "Edit", edit_request_path(request) %><%= link_to "Delete", request_path(request), method: :delete, data: { confirm: "Are you sure you want to delete this request?" } %>
@@ -66,8 +66,14 @@
                         <p> <%= offer.created_at %></p>
                         <p> <%= offer.user.first_name %> <%= offer.user.last_name %></p>
                         <p> <%= offer.message %></p>
+                        <% if offer.status == "Pending" %>
+                        <span class="text-warning"><%= offer.status %></span>
                         <%= link_to "Accept", [offer, { offer: { status: 'Accepted' }}], method: :patch %>
                         <%= link_to "Reject", [offer, { offer: { status: 'Rejected' }}], method: :patch %>
+                        <% else %>
+                          <p class="<%= offer.status == "Accepted" ? "text-success" : "text-danger" %>">Status: <%= offer.status %></p>
+                        <% end %>
+                        
 
                       </div>
                     <% end %>
@@ -92,18 +98,24 @@
     <%# My offers %>
     <div class="my-offers" data-profiles-target="offers">
 
-      <% if current_user.offers %>
-        <div class="profile-container-requests">
-          <% current_user.offers.each do |offer| %>
 
-            <div class="col-sm-6 col-md-6 col-lg-4 ">
-              <div class="request-card">
-                <div class="profile-request-image-container">
-                  <% if offer.request.photo.present? %>
-                    <%= image_tag offer.request.photo, height: 200, crop: :fill %>
-                  <% else %>
-                    <%= image_tag "Doggy.jpg", height: 200, crop: :fill %>
-                  <% end %>
+    <% if current_user.offers %>
+      <div class="profile-container-requests">
+        <% current_user.offers.each do |offer| %>
+          <div class="col-sm-6 col-md-6 col-lg-4 ">
+            <div class="request-card">
+              <div class="profile-request-image-container">
+                <% if offer.request.photo.present? %>
+                  <%= image_tag offer.request.photo, height: 200, crop: :fill %>
+                <% else %>
+                  <%= image_tag "Doggy.jpg", height: 200, crop: :fill %>
+                <% end %>
+              </div>
+              <div class="request-info">
+                <div class="request-card-info">
+                  <p class="card-price">Reward <i class="fa-solid fa-euro-sign"></i> <%= offer.request.price %></p>
+                  <p class="card-title"><%= offer.request.title%></p>
+                  
                 </div>
                 <div class="request-info">
                   <div class="request-card-info">
