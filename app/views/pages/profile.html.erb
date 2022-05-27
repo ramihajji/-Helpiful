@@ -58,8 +58,9 @@
                         <p> <%= offer.created_at %></p>
                         <p> <%= offer.user.first_name %> <%= offer.user.last_name %></p>
                         <p> <%= offer.message %></p>
-                        <button type="button", class="btn btn-outline-success">Accept</button>
-                        <button type="button", class="btn btn-outline-danger">Reject</button>
+                        <%= link_to "Accept", [offer, { offer: { status: 'Accepted' }}], method: :patch %>
+                        <%= link_to "Reject", [offer, { offer: { status: 'rejected' }}], method: :patch %>
+
                       </div>
                     <% end %>
                   </div>
