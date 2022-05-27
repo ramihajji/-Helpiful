@@ -17,8 +17,7 @@ export default class extends Controller {
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-    const mapDiv = document.getElementById('test');
-    if (mapDiv.style.visibility === true) map.resize();
+    this.map.resize();
   }
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
