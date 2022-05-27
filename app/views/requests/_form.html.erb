@@ -4,6 +4,7 @@
           <%= f.input :title %>
           <%= f.input :description %>
           <%= f.input :city, collection: Request::CITIES %>
+          <%= f.input :address %>
           <%= f.input :category, collection: Request::CATEGORIES %>
           <%= f.input :price %>
           <%= f.input :photo, as: :file %>

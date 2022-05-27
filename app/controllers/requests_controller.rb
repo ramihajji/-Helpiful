@@ -35,7 +35,7 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
     @request.user = current_user
     authorize @request
-    if @request.save!
+    if @request.save
       redirect_to profile_path
     else
       render :new
@@ -61,7 +61,7 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:title, :description, :city, :price, :status, :address, :photo)
+    params.require(:request).permit(:title, :description, :category, :city, :price, :status, :address, :photo)
   end
 
   def set_request
