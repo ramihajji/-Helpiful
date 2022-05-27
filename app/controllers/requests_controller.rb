@@ -36,7 +36,7 @@ class RequestsController < ApplicationController
     @request.user = current_user
     authorize @request
     if @request.save!
-      redirect_to request_path(@request)
+      redirect_to profile_path
     else
       render :new
     end
@@ -47,7 +47,7 @@ class RequestsController < ApplicationController
 
   def update
     if @request.update(request_params)
-      redirect_to @request
+      redirect_to profile_path
     else
       render :edit
     end
