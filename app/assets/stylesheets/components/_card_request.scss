@@ -8,6 +8,15 @@
 .request-card {
   height: 500px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 25px;
+
+  .profile-request-image-container img{
+    overflow: auto;
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+  }
+
   h1 {
     font-size: 20px;
   }
@@ -21,7 +30,7 @@
 .request-info {
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  padding: 8px;
 
   .request-card-info {
     flex-grow: 4;

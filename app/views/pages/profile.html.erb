@@ -15,10 +15,10 @@
         <p>Here are all your requests</p>
         <div class="profile-container-requests">
           <% current_user.requests.each do |request| %>
-            <div class="col-sm-6 col-md-6 col-lg-4 ">
+            <div class="col-sm-6 col-md-6 col-lg-4 p-4">
               <div class="request-card">
                 <div class="profile-request-image-container">
-                  <%= image_tag "Doggy.jpg", height: 300, width: 420 %>
+                  <%= image_tag "Doggy.jpg" %>
                 </div>
                 <div class="request-info">
                   <%= link_to "Edit", edit_request_path(request) %><%= link_to "Delete", request_path(request), method: :delete, data: { confirm: "Are you sure you want to delete this request?" } %>
