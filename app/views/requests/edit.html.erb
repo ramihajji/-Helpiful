@@ -1,10 +1,10 @@
 
 <div class="profile-container" data-controller="profiles">
   <div class="profile-menu">
-    <p> <%= link_to "Make a request", new_request_path %> </p>
+    <p> <%= link_to "My profile", profile_path %> </p>
     <p> <%= link_to "My requests", profile_path %> </p>
-    <p> <%= link_to "Go back", profile_path %> </p>
-    <%# <p> <%= link_to "Update my avatar" profile_path</p> %>
+    <p> <%= link_to "Make a request", new_request_path %> </p>
+    <p> <%= link_to "Update profile", edit_user_registration_path(current_user) %> </p>
   </div>
 
   <div class="profile-content">
