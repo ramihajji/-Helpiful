@@ -6,9 +6,10 @@
 }
 
 .request-card {
-  height: 500px;
+  height: 400px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 25px;
+  object-fit: cover;
 
   .profile-request-image-container img{
     overflow: auto;
